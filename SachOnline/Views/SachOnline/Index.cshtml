@@ -1,0 +1,279 @@
+﻿@model IEnumerable<SachOnline.Model.SACH>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+</body>
+</html>
+
+
+
+<h2 class="text-center">Sách Mới</h2>
+<hr>
+<div class="row text-center">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+            <div class="thumbnail">
+                <img src="~/Images/@item.AnhBia" alt="AnhBia" class="img-responsive img-rounded imgbook" style="width:450px; height:auto;">
+                <div class="caption">
+                    <h4 style="min-height: 70px">
+                        <a href="@Url.Action("Chitietsach", "SachOnline", new {id = item.MaSach})">@item.TenSach</a>
+                    </h4>
+                    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<nav class="text-center">
+    <ul class="pagination">
+        <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li class="disabled"><a href="#">5</a></li>
+        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+    </ul>
+</nav>
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar1" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar" href="#">Sách online</a>
+            </div>
+        </div>
+    </nav>
+    <div class="collapse navbar-collapse" id="navbar1">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">TRANG CHỦ</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-expanded="false" aria-haspopup="true">Nguoi dung<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("DangKy", "SachOnline")">Đăng ký</a></li> <!-- Link Đăng ký -->
+                    <li role="separator" class="divider"></li>
+                </ul>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Gio hang (0)</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Tim kiem">
+            </div>
+            <button type="submit" class="btn btn-default">Tim</button>
+        </form>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div id="caroulse1" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#corousel1" data-slide-to="0" class="active"></li>
+                        <li data-target="#corousel1" data-slide-to="1" class=""></li>
+                        <li data-target="#corousel1" data-slide-to="2" class=""></li>
+                        <li data-target="#corousel1" data-slide-to="3" class=""></li>
+                        <li data-target="#corousel1" data-slide-to="4" class=""></li>
+                        <li data-target="#corousel1" data-slide-to="5" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-responsive" src="~/Images/Slider/9Slide-Download-Bộ-Ảnh-Nhân-Vật-3D-Quý-giá-cho-Slide-Powerpoint-Giáng-Sinh.png" alt="thumb">
+                            <div class="carousel-caption"></div>
+                        </div>
+                        <div class="item ">
+                            <img class="img-responsive" src="~/Images/Slider/9Slide-Download-Bộ-Ảnh-Nhân-Vật-3D-Quý-giá-cho-Slide-Powerpoint-Giáng-Sinh.png" alt="thumb">
+                            <div class="carousel-caption"></div>
+                        </div>
+                        <div class="item ">
+                            <img class="img-responsive" src="~/Images/Slider/9Slide-Download-Bộ-Ảnh-Nhân-Vật-3D-Quý-giá-cho-Slide-Powerpoint-Giáng-Sinh.png" alt="thumb">
+                            <div class="carousel-caption"></div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel1" data-slide="prev"><span class="icon-prev"></span></a>
+                    <a class="right carousel-control" href="#carousel1" data-slide="next"><span class="icon-next"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <!--CHU DE va NHA XUAT BAN-->
+                <ul class="list-group">
+                    <li class="list-group-item active" style="font-weight:bold; text-align:center">Sách theo chủ đề</li>
+                    <a href="#" class="list-group-item">Ngoại ngữ</a>
+                    <a href="#" class="list-group-item">Công nghệ thông tin</a>
+                    <a href="#" class="list-group-item">Luật</a>
+                    <a href="#" class="list-group-item">Văn học</a>
+                    <a href="#" class="list-group-item">Khoa hoc kỹ thuật</a>
+                    <a href="#" class="list-group-item">Nông nghiệp</a>
+                    <a href="#" class="list-group-item">Lịch sử, địa lý</a>
+                    <a href="#" class="list-group-item">Kinh tế</a>
+                    <a href="#" class="list-group-item">Nghệ thuật cuộc sống</a>
+                </ul>
+                <br>
+                <ul class="list-group">
+                    <li class="list-group-item active" style="font-weight:bold; text-align:center">Sách theo nhà xuất bản</li>
+                    <a href="#" class="list-group-item">Nhà xuất bản trẻ</a>
+                    <a href="#" class="list-group-item">NXB thống kê</a>
+                    <a href="#" class="list-group-item">Kim Đồng</a>
+                    <a href="#" class="list-group-item">Đại học quốc gia</a>
+                    <a href="#" class="list-group-item">Văn hóa nghệ thuật</a>
+                    <a href="#" class="list-group-item">Văn hóa</a>
+                    <a href="#" class="list-group-item">Lao động - Xã hội</a>
+                    <a href="#" class="list-group-item">Khoa học & Kỹ thuật</a>
+                </ul>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <h2 class="text-center">Sách mới</h2>
+                <hr>
+                <div class="row text-center">
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                        <div class="thumbnail">
+                            <img src="~/Images/Slider/images.png" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook">
+                            <div class="caption">
+                                <h3> Mỗi Lần Vấp Ngã Là Một Lần Trưởng Thành</h3>
+                                <p>
+                                    Câu chuyện về động lực để đứng lên
+                                </p>
+                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                        <div class="thumbnail">
+                            <img src="~/Images/Slider/nhung-cuon-sach-hay-nen-doc-mot-lan-trong-doi-3724.jpg" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook">
+                            <div class="caption">
+                                <h3>Đắc Nhân Tâm</h3>
+                                <p>
+                                    Một trong những quyển sách tự giúp bản thân (self-help) bán chạy nhất từ tới nay
+                                </p>
+                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-xs">
+                        <div class="thumbnail">
+                            <img src="~/Images/Slider/unnamed.jpg" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook">
+                            <div class="caption">
+                                <h3>Cho tôi xin một vé về tuổi thơ</h3>
+                                <p>Đôi khi ai cũng muốn một vé về tuổi thơ</p>
+                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                        <div class="thumbnail">
+                            <img src="~/Images/Slider/nhung-tam-long-cao-ca-1066778.jpg" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook">
+                            <div class="caption">
+                                <h3>Những tấm lòng cao cả</h3>
+                                <p></p>
+                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                        <div class="thumbnail">
+                            <img src="~/Images/Slider/images1658526_V__t_b_y_c_m_x_c.jpg" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook">
+                            <div class="caption">
+                                <h3>Vượt bẫy cảm xúc</h3>
+                                <p>Vượt qua sự chi phối cảm xúc</p>
+                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                        <div class="thumbnail">
+                            <img src="~/Images/Slider/nhung-cuon-sach-hay-ve-cuoc-song.png" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook">
+                            <div class="caption">
+                                <h3>Tương lai trong tay</h3>
+                                <p>Nắm lấy tương lai của bản thân trong tay</p>
+                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="text-center">
+                    <ul class="pagination">
+                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li class="disabled"><a href="#">5</a></li>
+                        <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <h2 class="text-center">SÁCH BÁN CHẠY</h2>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="media-object-default">
+                    <div class="media">
+                        <div class="media-left"><a href="#"><img class="media-object imgsachbannhieu" src="~/Images/Slider/images.png" alt="placeholder image"></a></div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                Mỗi lần vấp ngã là một lần trưởng thành
+                            </h4>
+                            Trong cuộc đời, mỗi chúng ta dù ít dù nhiều đều đã từng trải qua những thời khắc khó khăn, đau khổ. Đặc biệt đối với những bạn rời xa vòng tay che chở, bao bọc của cha mẹ và nhà trường, bước chân vào xã hội, bạn sẽ gặp phải rất nhiều trở ngại và nhận ra xã hội ngày vốn không hề đơn giản như bạn tưởng tượng.
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left"><a href="#"><img class="media-object imgsachbannhieu" src="~/Images/Slider/ong-gia-01-Copy.jpg" alt="placeholder image"></a></div>
+                        <h4 class="media-heading">Ông già và biển cả</h4>
+                        Ông già và Biển cả (tên tiếng Anh: The Old Man and the Sea) là một tiểu thuyết ngắn được Ernest Hemingway viết ở Cuba năm 1951 và xuất bản năm 1952. Nó là truyện ngắn dạng viễn tưởng cuối cùng được Hemingway viết và được xuất bản khi ông còn sống. Đây cũng là tác phẩm nổi tiếng và là một trong những tác phẩm đỉnh cao trong sự nghiệp sáng tác của nhà văn. Tác phẩm đoạt giải Pulitzer cho tác phẩm hư cấu năm 1953. Nó cũng góp phần quan trọng để nhà văn nhận Giải Nobel văn học năm 1954.
+                    </div>
+                    <div class="media">
+                        <div class="media-left"><a href="#"><img class="media-object imgsachbannhieu" src="~/Images/Slider/unnamed.jpg" alt="placeholder image"></a></div>
+                        <h4 class="media-heading">Cho tôi xin 1 vé về tuổi thơ</h4>
+                        Tác phẩm gồm những câu chuyện nhỏ xoay xung quanh bốn đứa trẻ trong cùng một khu xóm là con Tủn, con Tí sún, thằng Hải cò và thằng cu Mùi. Trong đó, người kể chuyện là cu Mùi dưới hình thức kể của "thằng cu Mùi" lúc bé và nhận xét, đánh giá của "ông Mùi" khi đã gần 50 tuổi. Song song đó còn có sự xuất hiện của các phụ huynh và những câu chuyện dở khóc dở cười khiến chúng như đang sống lại tuổi thơ tươi đẹp.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="media-object-default">
+                    <div class="media">
+                        <div class="media-left"><a href="#"><img class="media-object imgsachbannhieu" src="~/Images/Slider/hoang-tu-be-bia-cung.png" alt="placeholder image"></a></div>
+                        <h4 class="media-heading">Hoàng tử bé</h4>
+                        Hoàng tử bé (tên tiếng Pháp: Le Petit Prince, phát âm: [lə p(ə)ti pʁɛ̃s]), được xuất bản năm 1943, là tiểu thuyết nổi tiếng nhất của nhà văn và phi công Pháp Antoine de Saint-Exupéry. Ông đã thuê ngôi biệt thự The Bevin House ở Asharoken, Long Island, New York trong khi viết tác phẩm này. Cuốn tiểu thuyết cũng bao gồm nhiều bức tranh do chính Saint-Exupéry vẽ. Tác phẩm đã được dịch sang hơn 250 ngôn ngữ (bao gồm cả tiếng địa phương) và cho đến nay đã bán được hơn 200 triệu bản khắp thế giới, trở thành một trong những sách bán chạy nhất của mọi thời đại, được phát triển thành một sê ri truyện tranh 39 chương bởi Élyum Studio, và một phiên bản graphic novel bìa cứng chuyển thể bởi danh họa tài năng Joann Sfar. Truyện còn được dùng như tài liệu cho những người muốn làm quen với ngoại ngữ.
+                    </div>
+                    <div class="media">
+                        <div class="media-left"><a href="#"><img class="media-object imgsachbannhieu" src="~/Images/Slider/nhung-cuon-sach-hay-nen-doc-mot-lan-trong-doi-3724.jpg" alt="placeholder image"></a></div>
+                        <h4 class="media-heading">Đắc Nhân Tâm</h4>
+                        Quyển sách đưa ra các lời khuyên về cách thức cư xử, ứng xử và giao tiếp với mọi người để đạt được thành công trong cuộc sống (theo bản dịch của dịch giả Nguyễn Hiến Lê). Quyển sách gồm 6 phần, mỗi phần có nhiều chương, với các đề mục như sau:
+                    </div>
+                    <div class="media">
+                        <div class="media-left"><a href="#"><img class="media-object imgsachbannhieu" src="~/Images/Slider/NXBTreStoryFull_02482010_104821.jpg" alt="placeholder image"></a></div>
+                        <h4 class="media-heading">Tôi thấy hoa vàng trên cỏ xanh</h4>
+                        Tôi thấy hoa vàng trên cỏ xanh là một tiểu thuyết dành cho thanh thiếu niên của nhà văn Nguyễn Nhật Ánh, xuất bản lần đầu tại Việt Nam vào ngày 9 tháng 12 năm 2010 bởi Nhà xuất bản Trẻ với phần tranh minh họa do Đỗ Hoàng Tường thực hiện. Đây là một trong các truyện dài của Nguyễn Nhật Ánh, ra đời sau Đảo mộng mơ và trước Lá nằm trong lá. Tác phẩm như một tập nhật ký xoay quanh cuộc sống của những đứa trẻ ở một vùng quê Việt Nam nghèo khó, nổi bật lên là thông điệp về tình anh em, tình làng nghĩa xóm và những tâm tư của tuổi mới lớn. Theo Nguyễn Nhật Ánh, đây là lần đầu tiên ông đưa vào truyện của mình những nhân vật phản diện, đặt ra vấn đề đạo đức như sự vô tâm hay cái ác
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <footer class="container well"></footer>

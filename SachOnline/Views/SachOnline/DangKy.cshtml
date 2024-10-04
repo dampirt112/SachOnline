@@ -1,0 +1,72 @@
+﻿@{
+    @model SachOnline.Model.SACH
+    ViewBag.Title = "Đăng Ký Khách Hàng";
+}
+
+<h2>Đăng Ký Khách Hàng</h2>
+
+<form action="/SachOnline/DangKy" method="post">
+    <div class="form-group">
+        <label for="HoTen">Họ tên</label>
+        <input type="text" class="form-control" id="HoTen" name="HoTen" placeholder="Nhập họ tên" required />
+        @if (ViewData["err1"] != null)
+        {
+            <div class="text-danger">@ViewData["err1"]</div>
+        }
+    </div>
+    <div class="form-group">
+        <label for="TaiKhoan">Tên đăng nhập</label>
+        <input type="text" class="form-control" id="TaiKhoan" name="TaiKhoan" placeholder="Nhập tên đăng nhập" required />
+        @if (ViewData["err2"] != null)
+        {
+            <div class="text-danger">@ViewData["err2"]</div>
+        }
+    </div>
+    <div class="form-group">
+        <label for="MatKhau">Mật khẩu</label>
+        <input type="password" class="form-control" id="MatKhau" name="MatKhau" placeholder="Nhập mật khẩu" required />
+        @if (ViewData["err3"] != null)
+        {
+            <div class="text-danger">@ViewData["err3"]</div>
+        }
+    </div>
+    <div class="form-group">
+        <label for="MatKhauNhapLai">Nhập lại mật khẩu</label>
+        <input type="password" class="form-control" id="MatKhauNhapLai" name="MatKhauNhapLai" placeholder="Nhập lại mật khẩu" required />
+        @if (ViewData["err4"] != null)
+        {
+            <div class="text-danger">@ViewData["err4"]</div>
+        }
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" placeholder="Nhập email" required />
+        @if (ViewData["err5"] != null)
+        {
+            <div class="text-danger">@ViewData["err5"]</div>
+        }
+    </div>
+    <div class="form-group">
+        <label for="DiaChi">Địa chỉ</label>
+        <input type="text" class="form-control" id="DiaChi" name="DiaChi" placeholder="Nhập địa chỉ" />
+    </div>
+    <div class="form-group">
+        <label for="DienThoai">Số điện thoại</label>
+        <input type="text" class="form-control" id="DienThoai" name="DienThoai" placeholder="Nhập số điện thoại" required />
+        @if (ViewData["err6"] != null)
+        {
+            <div class="text-danger">@ViewData["err6"]</div>
+        }
+    </div>
+    <div class="form-group">
+        <label for="NgaySinh">Ngày sinh</label>
+        <input type="date" class="form-control" id="NgaySinh" name="NgaySinh" />
+    </div>
+    <button type="submit" class="btn btn-primary">Đăng ký</button>
+</form>
+
+@if (ViewBag.ThongBao != null)
+{
+    <div class="alert alert-danger">@ViewBag.ThongBao</div>
+}
+
